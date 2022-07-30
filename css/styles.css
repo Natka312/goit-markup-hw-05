@@ -19,10 +19,14 @@ html {
   --border-heder-c1: #ececec;
   --color-svg-links: #afb1b8;
   --color-svg-bg-footer: rgba(255, 255, 255, 0.1);
+  --btn-hero-hover: #188ce8;
 }
 body {
   font-family: var(--main-font);
   color: var(--main-txt-cl);
+}
+.no-scroll{
+  overflow: hidden;
 }
 h1,
 h2,
@@ -185,6 +189,7 @@ p {
   text-align: center;
   cursor: pointer;
   background-color: #2196f3;
+  color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   font-family: 'Roboto';
   font-style: normal;
@@ -192,15 +197,21 @@ p {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.06em;
+  border: 0;
   border-radius: 4px;
-  color: #ffffff;
+  
+
+ transition-property:color,background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s;
 }
-.hero-btn:hover .hero-btn:focus .hero-btn:active {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+.hero-btn:hover,
+.hero-btn:focus, 
+.hero-btn:active {
+  background-color: var(--btn-hero-hover);
 }
-.main {
- 
-}
+.main {}
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -270,6 +281,30 @@ p {
   display: flex;
   justify-content: space-between;
   list-style: none;
+}
+.work-description{
+bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 70px;
+  /*padding: 27px 75px;*/
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.work-description-text{
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  
+  color: #FFFFFF;
 }
 .team {
   background: #f5f4fa;
@@ -564,4 +599,48 @@ p {
 .portfolio-items:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+/*Modal window*/
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.backdrop.is-hidden{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal{
+  position: relative;
+  width: 528px;
+  height: 580px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+.modal-btn{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+.modal-btn:focus, .modal-btn:hover, .modal-btn-icon:focus, .modal-btn-icon:hover {
+  cursor: pointer;
+  background-color: #2196f3;
+  fill: #ffffff;
 }
